@@ -1,0 +1,26 @@
+{
+  "name": "pdms",
+  "version": "1.0.0",
+  "description": "An application for managing patient data.",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JasmineLei/PDMS.git"
+  },
+  "author": "Jasmine Lei",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JasmineLei/PDMS/issues"
+  },
+  "homepage": "https://github.com/JasmineLei/PDMS#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "body-parser"    : "^1.4.3",
+    "method-override": "^2.1.3",
+    "mongoose"       : "^4.4.12",
+    "morgan"         : "^1.1.1"
+  }
+}

@@ -1,0 +1,139 @@
+Patient Data Management System (PDMS) Version 1.0 29/08/2016
+
+GENERAL DESCRIPTION
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+The Patient Data Management System is a Single Page Application used for managing patient information including adding, editing and deleting data associated with patients. The application is based on NodeJS, AngularJS and MongoDB, providing service for doctors to keep track on patient information. 
+
+Directory Tree Structure
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+The structure below just shows the first two levels.
+
+PDMS
+  —— node_modules: dependencies for NodeJS
+	—— express
+    	—— body-parser    
+            —— method-override
+            —— mongoose    
+            —— morgan  
+  —— public: views for application including HTML, Sass, and JavaScript
+	—— pages : HTML files to provide application views
+	—— Sass : Scss files which can be compiled to generate CSS	
+	—— js : JavaScript files to handle behaviour
+  —— dump: default database exported from MongoDB
+	—— pdms1: database
+  —— package.json: configure file for PDMS (NodeJS)
+  —— server.js: handle server side of PDMS
+ 
+
+
+LIBRARIES
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Framework
+	—— NodeJS
+		——"express"
+    		——“body-parser”   
+            	——“method-override”
+            	——“mongoose”      
+            	——“morgan” 
+Front-end
+	—— AngularJS   
+	—— Bootstrap
+	—— FontAwesome
+Back-end
+	—— MongoDB Database (Mongoose in NodeJS)  
+
+DESIGN
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+This section presents design of the product. Overall Design, Front-end Design and Back-end Design describes their basic functions and technology used. User Stories details the situations and  corresponding solutions. 
+
+Overall Design
+——————————————————
+The application is held and routed by NodeJS, interacting with MongoDB database. Client and Server sides communicate via Ajax ( get, put, delete, post) and Server side interacts with MongoDB through Mongoose.
+
+Front-End Design
+——————————————————
+The UI of application is based on HTML, CSS, Bootstrap and Javascript, controlled by AngularJS. AngularJS provides these features:
+  —— inject html into current page (Single Page Application) 
+  —— monitor page element change (dropdown box, input, button click, etc.)
+  —— send Ajax request ($http module)
+  —— control DOM element behaviour ( display, hide, sorting, filtering, etc.)
+
+Back-End Design
+——————————————————
+Based on NodeJS, server side handles the Ajax request from clients, interacting with MongoDB and make corresponding response:
+  —— identify Ajax request
+  —— send corresponding queries to MongoDB
+  —— receive result from MongoDB
+  —— send out response to client
+
+
+User Stories
+—————————————————-
+ Scenario 1: 
+  Users want to view all the current patients basic information ( first name, last name, date of birth).
+ Solution:
+    Request getting all items in Collection “records”: Client: AngularJS + Ajax get function ——> server: Mongoose ——> MongoDB
+    Response (patient data): MongoDB ——> server——> Client
+
+Scenario 2: 
+  Users want to add new patient with basic information ( first name, last name, date of birth).
+ Solution:
+    Request inserting new item in Collection “records”: Client: AngularJS + Ajax put function ——> server: Mongoose ——> MongoDB 
+    Response(updated data: previous + new patient data): MongoDB ——> server——> Client
+
+Scenario 3: 
+  Users want to delete patient ( first name, last name, date of birth, all notes).
+ Solution:
+    Request deleting data accosted with selected item in Collection “records” and “notes”: Client: AngularJS + Ajax delete function ——> server: Mongoose ——> MongoDB
+    Response(updated data: previous - deleted patient data): MongoDB ——> server——> Client
+
+Scenario 4: 
+  Users want to view patient detail ( first name, last name, date of birth, all notes).
+ Solution:
+    Request viewing all notes accosted with selected item ( _id for patient in database) in Collection “notes”: Client: AngularJS + Ajax get function ——> server: Mongoose ——> MongoDB
+    Response(notes data): MongoDB ——> server——> Client
+
+Scenario 5: 
+  Users want to add new note to the patient.
+ Solution:
+    Request inserting new notes to patient ( _id for patient in database) in Collection “notes”: Client: AngularJS + Ajax post function ——> server: Mongoose ——> MongoDB
+    Response(updated notes: previous notes data + new notes): MongoDB ——> server——> Client
+
+Scenario 6: 
+  Users want to delete new note to the patient.
+ Solution:
+    Request deleting selected notes of patient ( _id for patient in database) in Collection “notes”: Client: AngularJS + Ajax delete function ——> server: Mongoose ——> MongoDB
+    Response(updated notes: previous notes data - deleted notes): MongoDB ——> server——> Client
+
+Scenario 7: 
+  Users want to view the notes of the patient.
+ Solution:
+    Users select one notes of patient ( get $index of notes in notes list) ——> retrieve details of notes in $scope.notesList ——> display details
+    Response(updated notes: previous notes data - deleted notes): MongoDB ——> server——> Client
+
+Scenario 8: 
+  Users want to sort displayed patient list, by “Last Name” (alphabetically) or by “Date of Birth” (descending).
+ Solution:
+    Select item in dropdown box —> trigger AngularJs model (ng-model = “sortmethod”) —> sort the list.
+
+Scenario 9: 
+  Users want to search item(s) in displayed patient list, by “First Name” and/or “Last Name” and/or by range of “Date of Birth”.
+ Solution:
+    Users input data into input area —> trigger AngularJs model (ng-model=“searchFirst”, ng-model=“searchLast" ng-model=“startDate" ng-model="endDate")—> filter the list.
+  
+
+
+INSTALLATION 
+———————————————
+Perquisites:
+  —— NodeJS
+  —— MongoDB
+After installing NodeJS and MongoDB, to restore the default database, just open Terminal / CLI, redirect into the project root folder and type:
+
+   mongorestore --db pdms ./dump/pdms1
+
+Then type:
+      
+      npm start
+
+Then the application is ready to use on http://localhost:8080/ 

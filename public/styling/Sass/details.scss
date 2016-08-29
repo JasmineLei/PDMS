@@ -1,0 +1,63 @@
+@import "universal";
+
+
+#new-patient-section{
+    position: relative;
+    
+    #create{
+        float: right;
+        margin-top: 0.5em;
+    }
+    .records:nth-child(even){background-color: #f2f2f2}
+}
+#new-patient{
+    position: absolute;
+    top:0;
+    right: 30%;
+    border-color: $color;
+    border-radius: 5%;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 0.3em;
+    background-color: white;
+    padding: 3em;
+    margin: auto;
+    z-index: 10;
+    .form-group{
+        min-width: 30em;
+    }
+    
+}
+
+
+.notes-list{
+    width:100%;
+}
+
+.notes-btn{
+    font-size : 0.7em;
+    padding : 0.3em;
+}
+
+#note-details{
+    border-style: solid;
+    border-color: gray;
+    box-sizing: border-box;
+    border-width: 0.1em;
+    padding : 0.5em;
+    margin: 0.1em;
+    width : 100%;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+    background-color: antiquewhite;
+}
+.close-detail{
+    height : 0;
+    padding : 0;
+    display:none;
+}
+.open-detail{
+    height : auto;
+    display:block;
+}
+

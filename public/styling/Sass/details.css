@@ -1,0 +1,125 @@
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-family: sans-serif; }
+
+.clear-div {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+
+.div-setting {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  padding-left: 2em;
+  padding-right: 2em;
+  box-sizing: border-box;
+  margin: 0;
+  display: block;
+  width: 100%; }
+
+.header {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  color: #005eb0; }
+
+.headings {
+  font-size: 3em;
+  font-weight: bold; }
+
+.content-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  .content-section .operation-section {
+    width: 100%;
+    padding: 4em;
+    background-color: antiquewhite;
+    font-weight: bold; }
+    .content-section .operation-section .operation {
+      box-sizing: border-box;
+      padding: 1em;
+      display: block;
+      align-items: baseline;
+      justify-content: flex-start; }
+      .content-section .operation-section .operation i {
+        margin-right: 0.5em; }
+      .content-section .operation-section .operation label {
+        margin-right: 2em; }
+  .content-section .result-display {
+    width: 100%; }
+
+#search {
+  padding: 0.6em;
+  top: 0; }
+
+.input-items {
+  margin: 0; }
+
+.input-section {
+  width: 60%;
+  float: right; }
+
+.search-input {
+  width: 40% !important; }
+
+#new-patient-section {
+  position: relative; }
+  #new-patient-section #create {
+    float: right;
+    margin-top: 0.5em; }
+  #new-patient-section .records:nth-child(even) {
+    background-color: #f2f2f2; }
+
+#new-patient {
+  position: absolute;
+  top: 0;
+  right: 30%;
+  border-color: #005eb0;
+  border-radius: 5%;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0.3em;
+  background-color: white;
+  padding: 3em;
+  margin: auto;
+  z-index: 10; }
+  #new-patient .form-group {
+    min-width: 30em; }
+
+.notes-list {
+  width: 100%; }
+
+.notes-btn {
+  font-size: 0.7em;
+  padding: 0.3em; }
+
+#note-details {
+  border-style: solid;
+  border-color: gray;
+  box-sizing: border-box;
+  border-width: 0.1em;
+  padding: 0.5em;
+  margin: 0.1em;
+  width: 100%;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+  background-color: antiquewhite; }
+
+.close-detail {
+  height: 0;
+  padding: 0;
+  display: none; }
+
+.open-detail {
+  height: auto;
+  display: block; }
+
+/*# sourceMappingURL=details.css.map */

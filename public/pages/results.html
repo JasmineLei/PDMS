@@ -1,0 +1,35 @@
+<div id="new-patient-section">
+    <h class="headings">Search Result</h>
+    <button id="create" class="btn btn-success" ng-click="create($event)">
+    <i class="fa fa-plus" aria-hidden="true"></i>
+    Create
+    </button>
+    <table class="table table-hover">
+    <tr>
+        <th class="column-heading">First Name</th>
+        <th>Last Name</th>
+        <th>Date Of Birth</th>
+        <th>Gender</th>
+        <th>Operation</th>
+    </tr>
+    <tr class="records" id="{{ x._id}}" ng-repeat="x in patientData | orderBy:sortmethod:reverse | filter:{'FirstName':  searchFirst} | filter:{'LastName':  searchLast} | filter: dateRangeFilter('DateOfBirth', startDate, endDate)" >
+        <td>{{ x.FirstName}}</td>
+        <td>{{ x.LastName}}</td>
+        <td>{{ x.DateOfBirth| date: "yyyy-MM-dd"}}</td>
+        <td>{{ x.Gender}}</td>
+        <td>
+            <button id="edit" class="operation btn btn-primary" ng-click="edit(x)">
+                <i class="fa fa-times" aria-hidden="true"></i>
+                Edit
+            </button>
+            <button id="delete" class="operation btn btn-warning" ng-click="delete(x._id)">
+                <i class="fa fa-times" aria-hidden="true"></i>
+                Delete
+            </button>
+        </td>
+    </tr>
+    </table>
+    <div id="new-patient" ng-show="details" ng-include src="'pages/patientDetail.html'">
+
+    </div>
+</div>
